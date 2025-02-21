@@ -27,3 +27,5 @@ Con la información que disponemos se pide:
 	3. Diseño de la estructura de base de datos utilizando una base de datos relacional SQLite.
 	4. Codificación del proyecto utilizando Eclipse.
 	5. Utilizaremos un repositorio en GitHub para ir almacenando los cambios.
+
+añadiendo linea en master
