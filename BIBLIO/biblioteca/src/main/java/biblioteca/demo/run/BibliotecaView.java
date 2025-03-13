@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent; //Hay que importarlo para que te deje vincular botones con vistas
+import java.awt.event.ActionListener; //Hay que importarlo para que te deje vincular botones con vistas
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JPasswordField;
@@ -42,6 +44,15 @@ public class BibliotecaView {
 		btnNewButton.setForeground(SystemColor.textHighlight);
 		btnNewButton.setBounds(65, 53, 101, 23);
 		frmBiblioteca.getContentPane().add(btnNewButton);
+		//Para asociar lo botones
+		btnNewButton.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        // Abre la vista LibroView al hacer clic en el botón
+		        new LibroView().frmBiblioteca.setVisible(true); // Abre la ventana LibroView
+		        frmBiblioteca.setVisible(false); // Opcional: oculta la ventana BibliotecaView
+		    }
+		});
 		
 		btnPrstamo = new JButton("PRÉSTAMO");
 		btnPrstamo.setForeground(SystemColor.textHighlight);
@@ -68,4 +79,11 @@ public class BibliotecaView {
 		frmBiblioteca.setBackground(new Color(255, 255, 255));
 		
 	}
+	//Hay que crear el main para que despues deje vincular botones
+	public static void main(String[] args) {
+        // Crea una instancia de la clase BibliotecaView
+        BibliotecaView window = new BibliotecaView();
+        // Haz visible la ventana principal
+        window.frmBiblioteca.setVisible(true);
+    }
 }
