@@ -10,47 +10,62 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
+import javax.swing.JPasswordField;
+import java.awt.Canvas;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+import java.awt.Font;
 
 public class BibliotecaView {
 	protected JFrame frmBiblioteca;
 	private JTextField txtIntroduzcaElIsbn;
 	private JScrollPane scrollPane;
 	private JTable table;
-	private JTextField txtLibreria;
-	private JTable table_1;
+	private JButton btnNewButton;
+	private JButton btnPrstamo;
+	private JButton btnSocio;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
 	
 	public BibliotecaView() { // El constructor (se suele llamar igual que en la clase y tiene que ser publico), lo que hace es crear un objeto de una clase
 		initialize();
 	}
 	private void initialize() { //para que te inicialicen los atributos
 		frmBiblioteca = new JFrame();
-		frmBiblioteca.setTitle("LIBRO");
-		//frmBiblioteca.setBounds(0, 0, 496, 496);
-		frmBiblioteca.getContentPane().setLayout(new MigLayout("", "[grow]", "[][][grow][][][][]"));
+		frmBiblioteca.setTitle("BIBLIOTECA MUNICIPAL");
+		frmBiblioteca.getContentPane().setBackground(Color.WHITE);
+		frmBiblioteca.getContentPane().setLayout(null);
 		
-		txtLibreria = new JTextField();
-		txtLibreria.setText("Introduzca el ISBN del libro");
-		frmBiblioteca.getContentPane().add(txtLibreria, "cell 0 0,growx");
-		txtLibreria.setColumns(10);
+		btnNewButton = new JButton("LIBRO");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton.setForeground(SystemColor.textHighlight);
+		btnNewButton.setBounds(65, 53, 101, 23);
+		frmBiblioteca.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton = new JButton("Añadir ");
-		frmBiblioteca.getContentPane().add(btnNewButton, "flowx,cell 0 1");
+		btnPrstamo = new JButton("PRÉSTAMO");
+		btnPrstamo.setForeground(SystemColor.textHighlight);
+		btnPrstamo.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnPrstamo.setBounds(65, 98, 101, 23);
+		frmBiblioteca.getContentPane().add(btnPrstamo);
 		
-		JButton btnNewButton_1 = new JButton("Eliminar");
-		frmBiblioteca.getContentPane().add(btnNewButton_1, "cell 0 1");
+		btnSocio = new JButton("SOCIO");
+		btnSocio.setForeground(SystemColor.textHighlight);
+		btnSocio.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnSocio.setBounds(65, 143, 101, 23);
+		frmBiblioteca.getContentPane().add(btnSocio);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		frmBiblioteca.getContentPane().add(scrollPane_1, "cell 0 2 1 5,grow");
+		lblNewLabel = new JLabel("GESTIÓN DE LA BIBLIOTECA");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel.setForeground(new Color(0, 58, 117));
+		lblNewLabel.setBounds(55, 0, 212, 43);
+		frmBiblioteca.getContentPane().add(lblNewLabel);
 		
-		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"ISBN", "T\u00CDTULO", "AUTOR", "EDICI\u00D3N"
-			}
-		));
-		scrollPane_1.setViewportView(table_1);
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\mañana\\Desktop\\logo peque.png"));
+		lblNewLabel_1.setBounds(240, 123, 64, 43);
+		frmBiblioteca.getContentPane().add(lblNewLabel_1);
+		frmBiblioteca.setBackground(new Color(255, 255, 255));
 		
-	}		
+	}
 }

@@ -10,14 +10,14 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class LibroView {
+public class SocioView {
 	protected JFrame frmBiblioteca;
 	private JTextField txtIntroduzcaElIsbn;
 	private JScrollPane scrollPane;
@@ -25,53 +25,47 @@ public class LibroView {
 	private JTextField txtLibreria;
 	private JTable table_1;
 	
-	public LibroView() { // El constructor (se suele llamar igual que en la clase y tiene que ser publico), lo que hace es crear un objeto de una clase
+	public SocioView() { // El constructor (se suele llamar igual que en la clase y tiene que ser publico), lo que hace es crear un objeto de una clase
 		initialize();
 	}
 	private void initialize() { //para que te inicialicen los atributos
 		frmBiblioteca = new JFrame();
 		frmBiblioteca.getContentPane().setBackground(new Color(255, 255, 255));
-		frmBiblioteca.setBackground(new Color(255, 255, 255));
-		frmBiblioteca.setTitle("LIBRO");
+		frmBiblioteca.setTitle("SOCIO");
 		frmBiblioteca.getContentPane().setLayout(null);
 		
 		txtLibreria = new JTextField();
-		txtLibreria.setBounds(7, 7, 349, 20);
-		txtLibreria.setText("<Introduzca el ISBN del libro>");
+		txtLibreria.setBounds(7, 7, 350, 20);
+		txtLibreria.setText("<Introduzca el DNI>");
 		frmBiblioteca.getContentPane().add(txtLibreria);
 		txtLibreria.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Añadir ");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		JButton btnNewButton = new JButton("Alta");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setForeground(SystemColor.textHighlight);
-		btnNewButton.setBounds(7, 34, 78, 23);
+		btnNewButton.setBounds(7, 34, 79, 23);
 		frmBiblioteca.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Eliminar");
+		JButton btnNewButton_1 = new JButton("Baja");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnNewButton_1.setForeground(SystemColor.textHighlight);
-		btnNewButton_1.setBounds(81, 34, 78, 23);
+		btnNewButton_1.setBounds(81, 34, 79, 23);
 		frmBiblioteca.getContentPane().add(btnNewButton_1);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(7, 68, 420, 186);
+		scrollPane_1.setBounds(7, 64, 420, 190);
 		frmBiblioteca.getContentPane().add(scrollPane_1);
 		
 		table_1 = new JTable();
-		table_1.setForeground(SystemColor.textHighlight);
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
-				"ISBN", "T\u00CDTULO", "AUTOR", "EDICI\u00D3N", "CAT"
+				"DNI/cod.", "Nombre", "Trabajador", "DOB", "mas Info"
 			}
 		));
 		scrollPane_1.setViewportView(table_1);
@@ -79,12 +73,14 @@ public class LibroView {
 		JButton btnNewButton_2 = new JButton("ENTER");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton_2.setForeground(SystemColor.textHighlight);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_2.setBounds(356, 6, 78, 23);
+		btnNewButton_2.setBounds(355, 6, 79, 23);
 		frmBiblioteca.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Modificar");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton_3.setForeground(SystemColor.textHighlight);
+		btnNewButton_3.setBounds(155, 34, 89, 23);
+		frmBiblioteca.getContentPane().add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\mañana\\Desktop\\logo pequeñin.png"));
