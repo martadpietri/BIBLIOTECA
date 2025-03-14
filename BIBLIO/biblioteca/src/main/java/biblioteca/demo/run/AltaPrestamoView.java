@@ -34,6 +34,7 @@ public class AltaPrestamoView {
 		frmBiblioteca.getContentPane().setBackground(new Color(255, 255, 255));
 		frmBiblioteca.setTitle("AÑADIR PRÉSTAMO");
 		frmBiblioteca.getContentPane().setLayout(null);
+		frmBiblioteca.setBounds(500, 200, 455, 301); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
 		
 		JLabel lblNewLabel = new JLabel("Introduce ISBN:");
 		lblNewLabel.setBounds(24, 28, 104, 20);
@@ -44,11 +45,11 @@ public class AltaPrestamoView {
 		frmBiblioteca.getContentPane().add(lblIntroduceIsbn);
 		
 		JLabel lblIntroduceFechaPrstamo = new JLabel("Introduce fecha préstamo:");
-		lblIntroduceFechaPrstamo.setBounds(24, 112, 134, 20);
+		lblIntroduceFechaPrstamo.setBounds(24, 112, 151, 20);
 		frmBiblioteca.getContentPane().add(lblIntroduceFechaPrstamo);
 		
 		JLabel lblIntroduceFechaDevolucin = new JLabel("Introduce fecha devolución:");
-		lblIntroduceFechaDevolucin.setBounds(24, 156, 144, 20);
+		lblIntroduceFechaDevolucin.setBounds(24, 156, 151, 20);
 		frmBiblioteca.getContentPane().add(lblIntroduceFechaDevolucin);
 		
 		textField = new JTextField();
@@ -66,36 +67,50 @@ public class AltaPrestamoView {
 		textField_2 = new JTextField();
 		textField_2.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_2.setColumns(10);
-		textField_2.setBounds(168, 112, 103, 20);
+		textField_2.setBounds(185, 112, 86, 20);
 		frmBiblioteca.getContentPane().add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_3.setColumns(10);
-		textField_3.setBounds(168, 156, 103, 20);
+		textField_3.setBounds(185, 156, 86, 20);
 		frmBiblioteca.getContentPane().add(textField_3);
 		
-		JButton btnNewButton = new JButton("Añadir");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setForeground(SystemColor.textHighlight);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAñadir = new JButton("Añadir");
+		btnAñadir.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnAñadir.setForeground(SystemColor.textHighlight);
+		btnAñadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(323, 56, 101, 23);
-		frmBiblioteca.getContentPane().add(btnNewButton);
+		btnAñadir.setBounds(323, 56, 101, 23);
+		frmBiblioteca.getContentPane().add(btnAñadir);
 		
 		JButton btnRestaurar = new JButton("Restaurar");
+		btnRestaurar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("");
+                textField_1.setText("");
+                textField_2.setText("");
+                textField_3.setText("");
+             }
+		});
 		btnRestaurar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnRestaurar.setForeground(SystemColor.textHighlight);
 		btnRestaurar.setBounds(323, 91, 101, 23);
 		frmBiblioteca.getContentPane().add(btnRestaurar);
 		
-		JButton btnNewButton_1 = new JButton("CERRAR");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setForeground(SystemColor.textHighlight);
-		btnNewButton_1.setBounds(328, 155, 89, 23);
-		frmBiblioteca.getContentPane().add(btnNewButton_1);
+		JButton btnCerrar = new JButton("CERRAR");
+		btnCerrar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnCerrar.setForeground(SystemColor.textHighlight);
+		btnCerrar.setBounds(328, 155, 89, 23);
+		frmBiblioteca.getContentPane().add(btnCerrar);
+		btnCerrar.addActionListener(new ActionListener() { // Tengo que activar el botón
+            public void actionPerformed(ActionEvent e) {
+                frmBiblioteca.dispose(); // El método para que se cierre la ventana
+            }
+        });
+        frmBiblioteca.getContentPane().add(btnCerrar);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\mañana\\Desktop\\logo pequeñin.png"));

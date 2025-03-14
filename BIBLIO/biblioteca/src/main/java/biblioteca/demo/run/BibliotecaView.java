@@ -20,13 +20,13 @@ import java.awt.SystemColor;
 import java.awt.Font;
 
 public class BibliotecaView {
-	protected JFrame frmBiblioteca;
+	private JFrame frmBiblioteca; // La cambie a público porque si no no me dejaba desde SwingMain entrar en ella
 	private JTextField txtIntroduzcaElIsbn;
 	private JScrollPane scrollPane;
 	private JTable table;
-	private JButton btnNewButton;
-	private JButton btnPrstamo;
-	private JButton btnSocio;
+	private JButton btnLibro; //Se añadio ahi, pero no hace falta
+	private JButton btnPrstamo; //Se añadio ahi, pero no hace falta
+	private JButton btnSocio; //Se añadio ahi, pero no hace falta
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	
@@ -38,33 +38,46 @@ public class BibliotecaView {
 		frmBiblioteca.setTitle("BIBLIOTECA MUNICIPAL");
 		frmBiblioteca.getContentPane().setBackground(Color.WHITE);
 		frmBiblioteca.getContentPane().setLayout(null);
+		frmBiblioteca.setBounds(500, 200, 340, 227); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
 		
-		btnNewButton = new JButton("LIBRO");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setForeground(SystemColor.textHighlight);
-		btnNewButton.setBounds(65, 53, 101, 23);
-		frmBiblioteca.getContentPane().add(btnNewButton);
+		btnLibro = new JButton("LIBRO"); // btnLibro el nombre del boton
+		btnLibro.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnLibro.setForeground(SystemColor.textHighlight);
+		btnLibro.setBounds(65, 53, 101, 23);
+		frmBiblioteca.getContentPane().add(btnLibro);
 		//Para asociar lo botones
-		btnNewButton.addActionListener(new ActionListener() {
-		    @Override
+		btnLibro.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        // Abre la vista LibroView al hacer clic en el botón
 		        new LibroView().frmBiblioteca.setVisible(true); // Abre la ventana LibroView
-		        frmBiblioteca.setVisible(false); // Opcional: oculta la ventana BibliotecaView
+		        // frmBiblioteca.setVisible(false); Opcional: oculta la ventana BibliotecaView
 		    }
 		});
 		
-		btnPrstamo = new JButton("PRÉSTAMO");
+		btnPrstamo = new JButton("PRÉSTAMO"); // btnPrstamo el nombre del boton
 		btnPrstamo.setForeground(SystemColor.textHighlight);
 		btnPrstamo.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnPrstamo.setBounds(65, 98, 101, 23);
 		frmBiblioteca.getContentPane().add(btnPrstamo);
+		btnPrstamo.addActionListener(new ActionListener() { 
+		    public void actionPerformed(ActionEvent e) {
+		        new PrestamoView().frmBiblioteca.setVisible(true);
+		        //frmBiblioteca.setVisible(false);  Opcional: oculta la ventana BibliotecaView
+		    }
+		});
 		
-		btnSocio = new JButton("SOCIO");
+		
+		btnSocio = new JButton("SOCIO"); // btnSocio el nombre del boton
 		btnSocio.setForeground(SystemColor.textHighlight);
 		btnSocio.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnSocio.setBounds(65, 143, 101, 23);
 		frmBiblioteca.getContentPane().add(btnSocio);
+		btnSocio.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        new SocioView().frmBiblioteca.setVisible(true); // Abre la ventana LibroView
+		       // frmBiblioteca.setVisible(false);Opcional: oculta la ventana BibliotecaView
+		    }
+		});
 		
 		lblNewLabel = new JLabel("GESTIÓN DE LA BIBLIOTECA");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -77,13 +90,14 @@ public class BibliotecaView {
 		lblNewLabel_1.setBounds(240, 123, 64, 43);
 		frmBiblioteca.getContentPane().add(lblNewLabel_1);
 		frmBiblioteca.setBackground(new Color(255, 255, 255));
+		frmBiblioteca.setVisible(true); // Para visivilizarlo, es lo mismo que crear el main
 		
 	}
 	//Hay que crear el main para que despues deje vincular botones
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
         // Crea una instancia de la clase BibliotecaView
         BibliotecaView window = new BibliotecaView();
         // Haz visible la ventana principal
         window.frmBiblioteca.setVisible(true);
-    }
+    }*/
 }

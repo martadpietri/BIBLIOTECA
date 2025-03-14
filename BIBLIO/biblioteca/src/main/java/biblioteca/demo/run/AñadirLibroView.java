@@ -39,6 +39,7 @@ public class AñadirLibroView {
 		frmBiblioteca.getContentPane().setBackground(new Color(255, 255, 255));
 		frmBiblioteca.setTitle("AÑADIR LIBRO");
 		frmBiblioteca.getContentPane().setLayout(null);
+		frmBiblioteca.setBounds(500, 200, 466, 293); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
 		
 		textField = new JTextField();
 		textField.setBackground(SystemColor.inactiveCaptionBorder);
@@ -49,7 +50,7 @@ public class AñadirLibroView {
 		textField_1 = new JTextField();
 		textField_1.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_1.setColumns(10);
-		textField_1.setBounds(123, 69, 150, 20);
+		textField_1.setBounds(123, 69, 144, 20);
 		frmBiblioteca.getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
@@ -67,18 +68,25 @@ public class AñadirLibroView {
 		textField_4 = new JTextField();
 		textField_4.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_4.setColumns(10);
-		textField_4.setBounds(164, 202, 109, 20);
+		textField_4.setBounds(184, 202, 89, 20);
 		frmBiblioteca.getContentPane().add(textField_4);
 		
-		JButton btnNewButton = new JButton("Añadir");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setForeground(SystemColor.textHighlight);
-		btnNewButton.setBounds(323, 56, 101, 23);
-		frmBiblioteca.getContentPane().add(btnNewButton);
+		JButton btnAñadir = new JButton("Añadir");
+		btnAñadir.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnAñadir.setForeground(SystemColor.textHighlight);
+		btnAñadir.setBounds(323, 56, 101, 23);
+		frmBiblioteca.getContentPane().add(btnAñadir);                                                  
+		
 		
 		JButton btnRestaurar = new JButton("Restaurar");
-		btnRestaurar.addActionListener(new ActionListener() {
+		btnRestaurar.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
+				// Recorra cada JTextField y lo vacia a traves del método setText("")
+                textField.setText("");
+                textField_1.setText("");
+                textField_2.setText("");
+                textField_3.setText("");
+                textField_4.setText("");
 			}
 		});
 		btnRestaurar.setForeground(SystemColor.textHighlight);
@@ -91,6 +99,12 @@ public class AñadirLibroView {
 		btnCerrar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnCerrar.setBounds(328, 155, 89, 23);
 		frmBiblioteca.getContentPane().add(btnCerrar);
+		btnCerrar.addActionListener(new ActionListener() { // Tengo que activar el botón
+            public void actionPerformed(ActionEvent e) {
+                frmBiblioteca.dispose(); // El método para que se cierre la ventana
+            }
+        });
+        frmBiblioteca.getContentPane().add(btnCerrar);
 		
 		lblNewLabel = new JLabel("Introduce ISBN:");
 		lblNewLabel.setBounds(24, 28, 104, 20);
@@ -109,7 +123,7 @@ public class AñadirLibroView {
 		frmBiblioteca.getContentPane().add(lblIntroduceEdicin);
 		
 		lblIntroduceCategora = new JLabel("Introduce categoría (±14):");
-		lblIntroduceCategora.setBounds(24, 202, 130, 20);
+		lblIntroduceCategora.setBounds(24, 202, 150, 20);
 		frmBiblioteca.getContentPane().add(lblIntroduceCategora);
 		
 		lblNewLabel_1 = new JLabel("");

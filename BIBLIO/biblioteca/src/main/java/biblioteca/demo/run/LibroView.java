@@ -8,6 +8,10 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent; //Hay que importarlo para que te deje vincular botones con vistas
+import java.awt.event.ActionListener; //Hay que importarlo para que te deje vincular botones con vistas
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionListener;
@@ -34,32 +38,53 @@ public class LibroView {
 		frmBiblioteca.setBackground(new Color(255, 255, 255));
 		frmBiblioteca.setTitle("LIBRO");
 		frmBiblioteca.getContentPane().setLayout(null);
+		frmBiblioteca.setBounds(500, 200, 455, 301); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
 		
 		txtLibreria = new JTextField();
+		txtLibreria.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent e) {
+                // Si el campo tiene el texto por defecto, lo borramos cuando obtiene el foco
+                if (txtLibreria.getText().equals("<Introduzca el ISBN del libro>")) {
+                	txtLibreria.setText("");
+                	txtLibreria.setForeground(Color.BLACK); // Cambiar el color del texto cuando el usuario empieza a escribir
+                }
+            }
+
+            public void focusLost(FocusEvent e) {
+                // Si el campo está vacío, restauramos el texto por defecto
+                if (txtLibreria.getText().isEmpty()) {
+                	txtLibreria.setText("<Introduzca el ISBN del libro>");
+                	txtLibreria.setForeground(Color.GRAY); // Cambiar el color del texto a gris cuando está vacío
+                }
+            }
+        });
 		txtLibreria.setBounds(7, 7, 349, 20);
 		txtLibreria.setText("<Introduzca el ISBN del libro>");
 		frmBiblioteca.getContentPane().add(txtLibreria);
 		txtLibreria.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Añadir ");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAnadir = new JButton("Añadir "); // Cambie a mano lo nombres de los botones y los incluí en la clase LibroView
+		btnAnadir.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnAnadir.addActionListener(new ActionListener() { // Al importa la librería se me activo solo, solo queda asociarlo a la vista
 			public void actionPerformed(ActionEvent e) {
+				new AñadirLibroView().frmBiblioteca.setVisible(true); // Abre la ventana AñadirLibroView
+		        // frmBiblioteca.setVisible(false); Opcional: oculta la ventana BibliotecaView
 			}
 		});
-		btnNewButton.setForeground(SystemColor.textHighlight);
-		btnNewButton.setBounds(7, 34, 78, 23);
-		frmBiblioteca.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Eliminar");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnAnadir.setForeground(SystemColor.textHighlight);
+		btnAnadir.setBounds(7, 34, 78, 23);
+		frmBiblioteca.getContentPane().add(btnAnadir);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setForeground(SystemColor.textHighlight);
-		btnNewButton_1.setBounds(81, 34, 78, 23);
-		frmBiblioteca.getContentPane().add(btnNewButton_1);
+		btnEliminar.setForeground(SystemColor.textHighlight);
+		btnEliminar.setBounds(81, 34, 89, 23);
+		frmBiblioteca.getContentPane().add(btnEliminar);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(7, 68, 420, 186);
@@ -76,15 +101,15 @@ public class LibroView {
 		));
 		scrollPane_1.setViewportView(table_1);
 		
-		JButton btnNewButton_2 = new JButton("ENTER");
-		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_2.setForeground(SystemColor.textHighlight);
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnEnter = new JButton("ENTER");
+		btnEnter.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnEnter.setForeground(SystemColor.textHighlight);
+		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_2.setBounds(356, 6, 78, 23);
-		frmBiblioteca.getContentPane().add(btnNewButton_2);
+		btnEnter.setBounds(356, 6, 78, 23);
+		frmBiblioteca.getContentPane().add(btnEnter);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\mañana\\Desktop\\logo pequeñin.png"));

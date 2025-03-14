@@ -40,35 +40,36 @@ public class AñadirSocioView {
 		frmBiblioteca.setBackground(new Color(255, 255, 255));
 		frmBiblioteca.setTitle("AÑADIR SOCIO");
 		frmBiblioteca.getContentPane().setLayout(null);
+		frmBiblioteca.setBounds(500, 200, 455, 301); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
 		
 		textField = new JTextField();
 		textField.setBackground(SystemColor.inactiveCaptionBorder);
-		textField.setBounds(123, 28, 150, 20);
+		textField.setBounds(155, 28, 118, 20);
 		frmBiblioteca.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_1.setColumns(10);
-		textField_1.setBounds(123, 69, 150, 20);
+		textField_1.setBounds(155, 69, 118, 20);
 		frmBiblioteca.getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_2.setColumns(10);
-		textField_2.setBounds(123, 112, 150, 20);
+		textField_2.setBounds(155, 112, 118, 20);
 		frmBiblioteca.getContentPane().add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_3.setColumns(10);
-		textField_3.setBounds(164, 156, 109, 20);
+		textField_3.setBounds(191, 156, 82, 20);
 		frmBiblioteca.getContentPane().add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_4.setColumns(10);
-		textField_4.setBounds(123, 202, 150, 20);
+		textField_4.setBounds(143, 202, 130, 20);
 		frmBiblioteca.getContentPane().add(textField_4);
 		
 		JButton btnNewButton = new JButton("Añadir");
@@ -80,6 +81,11 @@ public class AñadirSocioView {
 		JButton btnRestaurar = new JButton("Restaurar");
 		btnRestaurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textField.setText("");
+                textField_1.setText("");
+                textField_2.setText("");
+                textField_3.setText("");
+                textField_4.setText("");
 			}
 		});
 		btnRestaurar.setForeground(SystemColor.textHighlight);
@@ -92,21 +98,27 @@ public class AñadirSocioView {
 		btnCerrar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnCerrar.setBounds(328, 155, 89, 23);
 		frmBiblioteca.getContentPane().add(btnCerrar);
+		btnCerrar.addActionListener(new ActionListener() { // Tengo que activar el botón
+            public void actionPerformed(ActionEvent e) {
+                frmBiblioteca.dispose(); // El método para que se cierre la ventana
+            }
+        });
+        frmBiblioteca.getContentPane().add(btnCerrar);
 		
 		lblNewLabel = new JLabel("Introduce DNI/cod.:");
-		lblNewLabel.setBounds(24, 28, 104, 20);
+		lblNewLabel.setBounds(24, 28, 121, 20);
 		frmBiblioteca.getContentPane().add(lblNewLabel);
 		
 		lblIntroduceTtulo = new JLabel("Introduce nombre:");
-		lblIntroduceTtulo.setBounds(24, 69, 104, 20);
+		lblIntroduceTtulo.setBounds(24, 69, 121, 20);
 		frmBiblioteca.getContentPane().add(lblIntroduceTtulo);
 		
 		lblIntroduceAutor = new JLabel("Trabajador (S/N):");
-		lblIntroduceAutor.setBounds(24, 112, 104, 20);
+		lblIntroduceAutor.setBounds(24, 112, 121, 20);
 		frmBiblioteca.getContentPane().add(lblIntroduceAutor);
 		
 		lblIntroduceEdicin = new JLabel("Fecha de nacimiento (DOB):");
-		lblIntroduceEdicin.setBounds(24, 156, 141, 20);
+		lblIntroduceEdicin.setBounds(24, 156, 157, 20);
 		frmBiblioteca.getContentPane().add(lblIntroduceEdicin);
 		
 		lblIntroduceCategora = new JLabel("Más información:");
