@@ -49,31 +49,31 @@ public class AltaPrestamoView {
 		frmBiblioteca.getContentPane().add(lblIntroduceFechaPrstamo);
 		
 		JLabel lblIntroduceFechaDevolucin = new JLabel("Introduce fecha devolución:");
-		lblIntroduceFechaDevolucin.setBounds(24, 156, 151, 20);
+		lblIntroduceFechaDevolucin.setBounds(24, 156, 176, 20);
 		frmBiblioteca.getContentPane().add(lblIntroduceFechaDevolucin);
 		
 		textField = new JTextField();
 		textField.setBackground(SystemColor.inactiveCaptionBorder);
-		textField.setBounds(132, 28, 139, 20);
+		textField.setBounds(132, 28, 153, 20);
 		frmBiblioteca.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_1.setColumns(10);
-		textField_1.setBounds(132, 69, 139, 20);
+		textField_1.setBounds(132, 69, 153, 20);
 		frmBiblioteca.getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_2.setColumns(10);
-		textField_2.setBounds(185, 112, 86, 20);
+		textField_2.setBounds(185, 112, 100, 20);
 		frmBiblioteca.getContentPane().add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_3.setColumns(10);
-		textField_3.setBounds(185, 156, 86, 20);
+		textField_3.setBounds(185, 156, 100, 20);
 		frmBiblioteca.getContentPane().add(textField_3);
 		
 		JButton btnAñadir = new JButton("Añadir");

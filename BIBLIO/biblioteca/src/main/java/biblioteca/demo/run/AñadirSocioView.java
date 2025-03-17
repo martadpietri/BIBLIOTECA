@@ -21,7 +21,7 @@ public class AñadirSocioView {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txtXxxxxxxx;
 	private JTextField textField_4;
 	private JLabel lblNewLabel;
 	private JLabel lblIntroduceTtulo;
@@ -60,11 +60,11 @@ public class AñadirSocioView {
 		textField_2.setBounds(155, 112, 118, 20);
 		frmBiblioteca.getContentPane().add(textField_2);
 		
-		textField_3 = new JTextField();
-		textField_3.setBackground(SystemColor.inactiveCaptionBorder);
-		textField_3.setColumns(10);
-		textField_3.setBounds(191, 156, 82, 20);
-		frmBiblioteca.getContentPane().add(textField_3);
+		txtXxxxxxxx = new JTextField();
+		txtXxxxxxxx.setBackground(SystemColor.inactiveCaptionBorder);
+		txtXxxxxxxx.setColumns(10);
+		txtXxxxxxxx.setBounds(191, 156, 82, 20);
+		frmBiblioteca.getContentPane().add(txtXxxxxxxx);
 		
 		textField_4 = new JTextField();
 		textField_4.setBackground(SystemColor.inactiveCaptionBorder);
@@ -84,7 +84,7 @@ public class AñadirSocioView {
 				textField.setText("");
                 textField_1.setText("");
                 textField_2.setText("");
-                textField_3.setText("");
+                txtXxxxxxxx.setText("");
                 textField_4.setText("");
 			}
 		});

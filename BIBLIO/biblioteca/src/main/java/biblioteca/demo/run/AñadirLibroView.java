@@ -50,7 +50,7 @@ public class AñadirLibroView {
 		textField_1 = new JTextField();
 		textField_1.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_1.setColumns(10);
-		textField_1.setBounds(123, 69, 144, 20);
+		textField_1.setBounds(123, 69, 150, 20);
 		frmBiblioteca.getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
@@ -62,7 +62,7 @@ public class AñadirLibroView {
 		textField_3 = new JTextField();
 		textField_3.setBackground(SystemColor.inactiveCaptionBorder);
 		textField_3.setColumns(10);
-		textField_3.setBounds(123, 156, 150, 20);
+		textField_3.setBounds(138, 156, 135, 20);
 		frmBiblioteca.getContentPane().add(textField_3);
 		
 		textField_4 = new JTextField();
