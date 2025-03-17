@@ -166,4 +166,8 @@ import javax.swing.ImageIcon;
 	            }
 	        });
 	    }
+	    
+	    Database db=new Database(); //Creo la base de datos de prueba
+		db.createDatabase(false); // Le paso el valor falso porque considero que no esta creada aun
+		db.loadDatabase(); // Cargo datos de prueba
 }

@@ -23,6 +23,8 @@ public class Database extends DbUtil {
 	/**
 	 * Crea una instancia, leyendo los parametros de driver y url de application.properties
 	 */
+	
+	
 	public Database() {
 		Properties prop=new Properties();
 		try (FileInputStream fs=new FileInputStream(APP_PROPERTIES)) {
