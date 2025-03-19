@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent; //Hay que importarlo para que te deje vincula
 import java.awt.event.ActionListener; //Hay que importarlo para que te deje vincular botones con vistas
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import net.miginfocom.swing.MigLayout;
 import java.awt.SystemColor;
@@ -41,7 +43,15 @@ public class PrestamoView {
 		
 		txtLibreria = new JTextField();
 		txtLibreria = new JTextField();
-		txtLibreria.addFocusListener(new FocusAdapter() {
+		// Para que cuando clique encima para escribir el ISBN se borre el mensaje y salga solo lo que escribes
+		txtLibreria.addMouseListener(new MouseAdapter() {
+							@Override
+							public void mouseClicked(MouseEvent e) {
+								txtLibreria.setText("");
+							}
+						});
+				
+		/*txtLibreria.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent e) {
                 // Si el campo tiene el texto por defecto, lo borramos cuando obtiene el foco
                 if (txtLibreria.getText().equals("<Introduzca el ISBN del libro>")) {
@@ -57,7 +67,8 @@ public class PrestamoView {
                 	txtLibreria.setForeground(Color.GRAY); // Cambiar el color del texto a gris cuando está vacío
                 }
             }
-        });
+        });*/
+		
 		txtLibreria.setBounds(7, 7, 350, 20);
 		txtLibreria.setText("<Introduzca el ISBN del libro>");
 		frmBiblioteca.getContentPane().add(txtLibreria);

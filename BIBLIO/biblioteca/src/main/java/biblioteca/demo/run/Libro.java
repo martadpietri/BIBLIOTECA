@@ -5,7 +5,7 @@ public class Libro {
 	private String titulo;
 	private String autor;
 	private int edicion;
-	private String categoria;
+	private String categoriaLibro;
 	/*que este privado significa que los atributos solo se pueden usar
 	 desde la misma clase*/
 	
@@ -46,13 +46,13 @@ public class Libro {
 		this.edicion = edicion;
 	}
 	
-	public String getCategoria() {
-		return categoria;
+	public String getCategoriaLibro() {
+		return categoriaLibro;
 	/*Get es para presentar el dato.*/
 	}
 
-	public void setCategorioa(String categoria) {
-		this.categoria = categoria;
+	public void setCategoriaLibro(String categoriaLibro) {
+		this.categoriaLibro = categoriaLibro;
 		/*set es para introducir el dato*/
 	}
 

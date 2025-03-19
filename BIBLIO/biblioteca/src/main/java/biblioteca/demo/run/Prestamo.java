@@ -40,7 +40,7 @@ public class Prestamo {
         this.fechaDevolucion = fechaDevolucion;
     }
 
-    // Método que verifica si el socio puede sacar un libro según su categoría
+    // Creacion de método que verifica si el socio tiene la edad para sacar la categoria que tenga el libro
     public boolean puedeSacarLibroPorCategoria(String numSocio, String ISBN) {
         // Consultar la categoría del socio
         String categoriaSocio = obtenerCategoriaSocio(numSocio);

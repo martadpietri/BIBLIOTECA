@@ -5,34 +5,40 @@
 drop table LIBRO;
 drop table PRESTAMO;
 drop table SOCIOS;
+drop table USUARIO;
 
 
 CREATE TABLE "LIBRO" (
-	"ISDN"	INTEGER NOT NULL,
-	"Titulo"	TEXT NOT NULL,
-	"Autor"	TEXT NOT NULL,
-	"Edicion"	INTEGER NOT NULL,
-	"Categoria"	INTEGER NOT NULL,
-	PRIMARY KEY("ISDN")
+	"ISBN"	INTEGER NOT NULL,
+	"titulo"	TEXT NOT NULL,
+	"autor"	TEXT NOT NULL,
+	"edicion"	INTEGER NOT NULL,
+	"categoriaLibro"	INTEGER NOT NULL,
+	PRIMARY KEY("ISBN")
 );
 
 CREATE TABLE "PRESTAMO" (
-	"socio"	INTEGER NOT NULL,
-	"libro"	INTEGER NOT NULL,
-	"fechaPestamo"	INTEGER NOT NULL,
+	"numSocio"	INTEGER NOT NULL,
+	"ISBN"	INTEGER NOT NULL,
+	"fechaPrestamo"	INTEGER NOT NULL,
 	"fechaDevolucion"	INTEGER NOT NULL,
-	PRIMARY KEY("libro","socio"),
-	FOREIGN KEY("libro") REFERENCES "LIBRO"("ISDN"),
-	FOREIGN KEY("socio") REFERENCES "SOCIOS"("numSocio")
+	PRIMARY KEY("ISBN","numSocio"),
+	FOREIGN KEY("ISBN") REFERENCES "LIBRO"("ISBN"),
+	FOREIGN KEY("numSocio") REFERENCES "SOCIOS"("numSocio")
 );
 
 CREATE TABLE "SOCIOS" (
-	"numSocio"	INTEGER NOT NULL,
-	"nomCcompleto"	TEXT NOT NULL,
+	"numSocio"	TEXT NOT NULL,
+	"nomCompleto"	TEXT NOT NULL,
 	"Trabajador"	INTEGER NOT NULL,
 	"fechaNacimiento"	TEXT NOT NULL,
 	"masInfo"	TEXT,
 	PRIMARY KEY("numSocio")
 );
 
+CREATE TABLE "USUARIO" (
+	"usuarios"	TEXT NOT NULL,
+	"contraseña"	TEXT NOT NULL,
+	PRIMARY KEY("usuarios")
+);
 

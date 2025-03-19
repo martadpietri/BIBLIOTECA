@@ -20,7 +20,7 @@ import java.awt.SystemColor;
 import java.awt.Font;
 
 public class BibliotecaView {
-	private JFrame frmBiblioteca; // La cambie a público porque si no no me dejaba desde SwingMain entrar en ella
+	private JFrame frmBiblioteca; 
 	private JTextField txtIntroduzcaElIsbn;
 	private JScrollPane scrollPane;
 	private JTable table;
@@ -29,11 +29,13 @@ public class BibliotecaView {
 	private JButton btnSocio; //Se añadio ahi, pero no hace falta
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	private BibliotecaController controlador;
 	
-	public BibliotecaView() { // El constructor (se suele llamar igual que en la clase y tiene que ser publico), lo que hace es crear un objeto de una clase
-		initialize();
+	public BibliotecaView(BibliotecaController b) { // El constructor (se suele llamar igual que en la clase y tiene que ser publico), lo que hace es crear un objeto de una clase
+		initialize(b);
 	}
-	private void initialize() { //para que te inicialicen los atributos
+	private void initialize(BibliotecaController co) { //para que te inicialicen los atributos
+		controlador = co;
 		frmBiblioteca = new JFrame();
 		frmBiblioteca.setTitle("BIBLIOTECA MUNICIPAL");
 		frmBiblioteca.getContentPane().setBackground(Color.WHITE);
@@ -100,4 +102,8 @@ public class BibliotecaView {
         // Haz visible la ventana principal
         window.frmBiblioteca.setVisible(true);
     }*/
+	public JFrame getFrame() {
+		// TODO Auto-generated method stub
+		return this.frmBiblioteca;
+	}
 }

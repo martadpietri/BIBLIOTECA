@@ -1,10 +1,12 @@
 package biblioteca.demo.run;
 
+import java.time.LocalDate;
+
 public class Socio {
 	private int numSocio;
 	private String nomCompleto;
 	private int trabajador;
-	private String fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	private String masInfo;
 	
 	public int getNumSocio() {
@@ -28,10 +30,10 @@ public class Socio {
 		this.trabajador = trabajador;
 	}
 	
-	public String getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	

@@ -20,6 +20,8 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LibroView {
 	protected JFrame frmBiblioteca;
@@ -41,23 +43,16 @@ public class LibroView {
 		frmBiblioteca.setBounds(500, 200, 455, 301); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
 		
 		txtLibreria = new JTextField();
-		txtLibreria.addFocusListener(new FocusAdapter() {
-            public void focusGained(FocusEvent e) {
-                // Si el campo tiene el texto por defecto, lo borramos cuando obtiene el foco
-                if (txtLibreria.getText().equals("<Introduzca el ISBN del libro>")) {
-                	txtLibreria.setText("");
-                	txtLibreria.setForeground(Color.BLACK); // Cambiar el color del texto cuando el usuario empieza a escribir
-                }
-            }
+		txtLibreria.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtLibreria.setText("");
+			}
+			
+		});
+		
 
-            public void focusLost(FocusEvent e) {
-                // Si el campo está vacío, restauramos el texto por defecto
-                if (txtLibreria.getText().isEmpty()) {
-                	txtLibreria.setText("<Introduzca el ISBN del libro>");
-                	txtLibreria.setForeground(Color.GRAY); // Cambiar el color del texto a gris cuando está vacío
-                }
-            }
-        });
+
 		txtLibreria.setBounds(7, 7, 349, 20);
 		txtLibreria.setText("<Introduzca el ISBN del libro>");
 		frmBiblioteca.getContentPane().add(txtLibreria);

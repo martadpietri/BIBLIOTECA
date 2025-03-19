@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionEvent; //Hay que importarlo para que te deje vincular botones con vistas
 import java.awt.event.ActionListener; //Hay que importarlo para que te deje vincular botones con vistas
@@ -82,23 +84,13 @@ import javax.swing.ImageIcon;
 			frmBiblioteca.getContentPane().add(lblNewLabel);
 			
 			textField = new JTextField();
-			textField.addFocusListener(new FocusAdapter() {
-	            public void focusGained(FocusEvent e) {
-	                // Si el campo tiene el texto por defecto, lo borramos cuando obtiene el foco
-	                if (textField.getText().equals("                      <usuario>")) {
-	                    textField.setText("");
-	                    textField.setForeground(Color.BLACK); // Cambiar el color del texto cuando el usuario empieza a escribir
-	                }
-	            }
-
-	            public void focusLost(FocusEvent e) {
-	                // Si el campo está vacío, restauramos el texto por defecto
-	                if (textField.getText().isEmpty()) {
-	                    textField.setText("                      <usuario>");
-	                    textField.setForeground(Color.GRAY); // Cambiar el color del texto a gris cuando está vacío
-	                }
-	            }
-	        });
+			textField.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					textField .setText("");
+				}
+				
+			});
 			textField.setBackground(new Color(236, 245, 255));
 			textField.setForeground(Color.GRAY);
 			textField.setText("                      <usuario>");
@@ -137,7 +129,8 @@ import javax.swing.ImageIcon;
 			JButton btnEnter = new JButton("ENTER");
 			btnEnter.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					BibliotecaView bibliotecaVista = new BibliotecaView();
+					BibliotecaController controller = new BibliotecaController();
+					controller.setVistaModel(new BibliotecaView(controller), new BibliotecaModel());
 				}
 			});
 			btnEnter.setFont(new Font("Tahoma", Font.BOLD, 11));

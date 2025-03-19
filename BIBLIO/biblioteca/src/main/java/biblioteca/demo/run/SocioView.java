@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent; //Hay que importarlo para que te deje vincula
 import java.awt.event.ActionListener; //Hay que importarlo para que te deje vincular botones con vistas
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import net.miginfocom.swing.MigLayout;
 import java.awt.SystemColor;
@@ -40,23 +42,15 @@ public class SocioView {
 		frmBiblioteca.setBounds(500, 200, 455, 301); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
 		
 		txtLibreria = new JTextField();
-		txtLibreria.addFocusListener(new FocusAdapter() {
-            public void focusGained(FocusEvent e) {
-                // Si el campo tiene el texto por defecto, lo borramos cuando obtiene el foco
-                if (txtLibreria.getText().equals("<Introduzca el DNI>")) {
-                	txtLibreria.setText("");
-                	txtLibreria.setForeground(Color.BLACK); // Cambiar el color del texto cuando el usuario empieza a escribir
-                }
-            }
-
-            public void focusLost(FocusEvent e) {
-                // Si el campo está vacío, restauramos el texto por defecto
-                if (txtLibreria.getText().isEmpty()) {
-                	txtLibreria.setText("<Introduzca el DNI>");
-                	txtLibreria.setForeground(Color.GRAY); // Cambiar el color del texto a gris cuando está vacío
-                }
-            }
-        });
+		// Para que cuando clique encima para escribir el DNI se borre el mensaje y salga solo lo que escribes
+		txtLibreria.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtLibreria.setText("");
+			}
+			
+		});
+		
 		txtLibreria.setBounds(7, 7, 350, 20);
 		txtLibreria.setText("<Introduzca el DNI>");
 		frmBiblioteca.getContentPane().add(txtLibreria);

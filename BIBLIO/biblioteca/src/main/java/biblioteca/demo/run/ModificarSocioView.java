@@ -17,7 +17,9 @@ import java.awt.event.FocusAdapter; //FocusAdapter es una clase abstracta que im
 									//de la interfaz FocusListener, puedes extender FocusAdapter y sobrescribir solo los métodos que necesitas
 
 import java.awt.event.FocusEvent; // FocusEvent se utiliza en la programación de interfaces gráficas para capturar y gestionar situaciones en 
-								  // las que un componente de la interfaz (como un JTextField, JButton, JTextArea, etc.) obtiene o pierde el enfoque.
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+// las que un componente de la interfaz (como un JTextField, JButton, JTextArea, etc.) obtiene o pierde el enfoque.
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -47,7 +49,15 @@ public class ModificarSocioView {
 		frmBiblioteca.setBounds(500, 200, 455, 301); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
 		
 		textField = new JTextField();
-		// Añadir un FocusListener para manejar el texto de marcador de posición
+		// Para que cuando clique encima para escribir el DNI se borre el mensaje y salga solo lo que escribes
+		textField.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						textField.setText("");
+					}
+				});
+		
+		/*// Añadir un FocusListener para manejar el texto de marcador de posición
 		// utilizar un FocusListener que detecte cuando el campo de texto recibe el foco, eliminando el texto por defecto cuando el usuario empieza a escribir
 		textField.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent e) {
@@ -65,7 +75,8 @@ public class ModificarSocioView {
                     textField.setForeground(Color.GRAY); // Cambiar el color del texto a gris cuando está vacío
                 }
             }
-        });
+        });*/
+		
 		textField.setForeground(new Color(255, 255, 255));
 		textField.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField.setText("               <DNI/cod.>");
