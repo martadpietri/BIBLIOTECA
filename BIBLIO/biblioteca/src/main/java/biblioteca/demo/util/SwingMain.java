@@ -144,6 +144,7 @@ import javax.swing.ImageIcon;
 			lblNewLabel_2.setBounds(112, 108, 215, 20);
 			frmBiblioteca.getContentPane().add(lblNewLabel_2);
 			
+			//LO QUE HAY QUE AÑADIR EN EL EXAMEN
 			Database db=new Database(); //Creo la base de datos de prueba
 			db.createDatabase(false); // Le paso el valor falso porque considero que no esta creada aun
 			db.loadDatabase(); // Cargo datos de prueba
