@@ -9,7 +9,7 @@ drop table USUARIO;
 
 
 CREATE TABLE "LIBRO" (
-	"ISBN"	INTEGER NOT NULL,
+	"isbn"	TEXT NOT NULL,
 	"titulo"	TEXT NOT NULL,
 	"autor"	TEXT NOT NULL,
 	"edicion"	INTEGER NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE "LIBRO" (
 
 CREATE TABLE "PRESTAMO" (
 	"numSocio"	INTEGER NOT NULL,
-	"ISBN"	INTEGER NOT NULL,
+	"ISBN"	TEXT NOT NULL,
 	"fechaPrestamo"	INTEGER NOT NULL,
 	"fechaDevolucion"	INTEGER NOT NULL,
 	PRIMARY KEY("ISBN","numSocio"),

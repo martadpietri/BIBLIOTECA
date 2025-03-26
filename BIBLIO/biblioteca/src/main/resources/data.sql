@@ -7,17 +7,17 @@ delete from PRESTAMO;
 delete from SOCIOS;
 delete from USUARIO;
 
-INSERT INTO LIBRO(ISBN,titulo,autor,edicion,categoriaLibro) VALUES 
-(9780439708180, "Harry Potter y la piedra filosofal", "J.K. Rowling", 1, "Menos 14"),
-(9780061122415, "El gato negro", "Edgar Allan Poe", 3, "Más 14"),
-(9788498387389, "Matilda", "Roald Dahl", 1, "Menos 14"),
-(9789871132076, "Cuentos de la selva", "Horacio Quiroga", 2, "Más 14"),
-(9780451524935, "1984", "George Orwell", 1, "Más 14"),
-(9788498386146, "Charlie y la fábrica de chocolate", "Roald Dahl", 1, "Menos 14"),
-(9788437605689, "Don Quijote de la Mancha", "Miguel de Cervantes", 1, "Más 14"),
-(9788448608193, "Percy Jackson y el ladrón del rayo", "Rick Riordan", 2, "Menos 14"),
-(9788498389796, "La llamada de lo salvaje", "Jack London", 1, "Más 14"),
-(9780143124193, "El diario de Ana Frank", "Ana Frank", 1, "Más 14");
+INSERT INTO LIBRO(isbn,titulo,autor,edicion,categoriaLibro) VALUES 
+('9780439708180', "Harry Potter y la piedra filosofal", "J.K. Rowling", 1, "Menos 14"),
+('9780061122415', "El gato negro", "Edgar Allan Poe", 3, "Más 14"),
+('9788498387389', "Matilda", "Roald Dahl", 1, "Menos 14"),
+('9789871132076', "Cuentos de la selva", "Horacio Quiroga", 2, "Más 14"),
+('9780451524935', "1984", "George Orwell", 1, "Más 14"),
+('9788498386146', "Charlie y la fábrica de chocolate", "Roald Dahl", 1, "Menos 14"),
+('9788437605689', "Don Quijote de la Mancha", "Miguel de Cervantes", 1, "Más 14"),
+('9788448608193', "Percy Jackson y el ladrón del rayo", "Rick Riordan", 2, "Menos 14"),
+('9788498389796', "La llamada de lo salvaje", "Jack London", 1, "Más 14"),
+('9780143124193', "El diario de Ana Frank", "Ana Frank", 1, "Más 14");
 
 INSERT INTO SOCIOS(numSocio,nomCompleto,trabajador,fechaNacimiento,masInfo) VALUES
 ('12345678A', 'Juan Pérez García', 1, '1985/03/22', '612345678'),

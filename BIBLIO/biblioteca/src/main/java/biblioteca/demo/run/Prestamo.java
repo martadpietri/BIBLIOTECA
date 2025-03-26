@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Prestamo {
 	private int numSocio;
-	private int ISBN;
+	private String ISBN;
 	private LocalDate fechaPrestamo;
 	private LocalDate fechaDevolucion;
 	/*que este privado significa que los atributos solo se pueden usar
@@ -17,10 +17,10 @@ public class Prestamo {
 		this.numSocio = numSocio;
 	}
 	
-	public int getISBN() {
+	public String getISBN() {
 		return ISBN;
 	}
-	public void setLibro(int ISBN) {
+	public void setLibro(String ISBN) {
 		this.ISBN = ISBN;
 	}
 	

@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent; //Hay que importarlo para que te deje vincula
 import java.awt.event.ActionListener; //Hay que importarlo para que te deje vincular botones con vistas
 
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JPasswordField;
 import java.awt.Canvas;
 import javax.swing.JLabel;
@@ -51,11 +52,13 @@ public class BibliotecaView {
 		btnLibro.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        // Abre la vista LibroView al hacer clic en el botón
-		        new LibroView().frmBiblioteca.setVisible(true); // Abre la ventana LibroView
+		        
 		        // frmBiblioteca.setVisible(false); Opcional: oculta la ventana BibliotecaView
+		        LibroController controller = new LibroController(); // AÑADIDO
+		        controller.setVistaModel(new LibroView(controller), new LibroModel()); //AÑADIDO
 		    }
 		});
-		
+	
 		btnPrstamo = new JButton("PRÉSTAMO"); // btnPrstamo el nombre del boton
 		btnPrstamo.setForeground(SystemColor.textHighlight);
 		btnPrstamo.setFont(new Font("Tahoma", Font.BOLD, 11));

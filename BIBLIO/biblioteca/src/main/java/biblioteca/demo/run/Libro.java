@@ -1,7 +1,7 @@
 package biblioteca.demo.run;
 
 public class Libro {
-	private int isbn;
+	private String isbn;
 	private String titulo;
 	private String autor;
 	private int edicion;
@@ -9,11 +9,11 @@ public class Libro {
 	/*que este privado significa que los atributos solo se pueden usar
 	 desde la misma clase*/
 	
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 

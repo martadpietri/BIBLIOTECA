@@ -14,6 +14,8 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 import net.miginfocom.swing.MigLayout;
+import biblioteca.demo.run.LibroController;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
@@ -26,21 +28,37 @@ import java.awt.event.MouseEvent;
 public class LibroView {
 	protected JFrame frmBiblioteca;
 	private JTextField txtIntroduzcaElIsbn;
+	private JTextField textField;
 	private JScrollPane scrollPane;
 	private JTable table;
 	private JTextField txtLibreria;
 	private JTable table_1;
+	private LibroController controller;
+	private DefaultTableModel listaLibro;
 	
-	public LibroView() { // El constructor (se suele llamar igual que en la clase y tiene que ser publico), lo que hace es crear un objeto de una clase
-		initialize();
+	public LibroView(LibroController controller) { // El constructor (se suele llamar igual que en la clase y tiene que ser publico), lo que hace es crear un objeto de una clase
+		initialize(controller);
 	}
-	private void initialize() { //para que te inicialicen los atributos
+	
+
+	private void initialize(LibroController controller) { 
+		
+		this.controller = controller;
+		//para que te inicialicen los atributos
+		listaLibro = new DefaultTableModel(new Object[][] {
+		},
+		new String[] {
+				"ISBN", "Titulo", "Autor","Edicion","Categoria"
+			}
+		);
+			
 		frmBiblioteca = new JFrame();
 		frmBiblioteca.getContentPane().setBackground(new Color(255, 255, 255));
 		frmBiblioteca.setBackground(new Color(255, 255, 255));
 		frmBiblioteca.setTitle("LIBRO");
 		frmBiblioteca.getContentPane().setLayout(null);
 		frmBiblioteca.setBounds(500, 200, 455, 301); // Para que cuando lo ejecuto se aplie en un tamaño predeterminado
+		this.controller = controller;
 		
 		txtLibreria = new JTextField();
 		txtLibreria.addMouseListener(new MouseAdapter() {
@@ -87,20 +105,18 @@ public class LibroView {
 		
 		table_1 = new JTable();
 		table_1.setForeground(SystemColor.textHighlight);
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"ISBN", "T\u00CDTULO", "AUTOR", "EDICI\u00D3N", "CAT"
-			}
-		));
-		scrollPane_1.setViewportView(table_1);
+		
 		
 		JButton btnEnter = new JButton("ENTER");
 		btnEnter.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEnter.setForeground(SystemColor.textHighlight);
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				table_1.setModel(listaLibro);
+				scrollPane_1.setViewportView(table_1);
+				LibroView.this.controller.cargaDatosLibro(txtLibreria.getText()); //
+				table_1.setModel(listaLibro); //
+							
 			}
 		});
 		btnEnter.setBounds(356, 6, 78, 23);
@@ -110,6 +126,18 @@ public class LibroView {
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\mañana\\Desktop\\logo pequeñin.png"));
 		lblNewLabel.setBounds(381, 34, 43, 32);
 		frmBiblioteca.getContentPane().add(lblNewLabel);
+		frmBiblioteca.setVisible(true);
 		
+	}
+
+
+	public JFrame getFrame() {
+		return this.frmBiblioteca;
+	}
+
+
+	public DefaultTableModel getModeloLista() {
+		// TODO Auto-generated method stub
+		return this.listaLibro;  // Tiene que devolver la lista
 	}		
 }
